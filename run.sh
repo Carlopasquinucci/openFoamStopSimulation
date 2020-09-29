@@ -7,6 +7,7 @@
 #    restart: Change the stopAt to endTime
 #    help: write the help
 
+
 if [ "$1" = "restart" ];
     then
     
