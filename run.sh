@@ -10,10 +10,11 @@
 
 if [ "$1" = "restart" ];
     then
-    
-sed s/'writeNow'/'$1'/ system/controlDict > system/controlDict2  
-sed s/'noWriteNow'/'$1'/ system/controlDict > system/controlDict2 
-sed s/'nextWrite'/'$1'/ system/controlDict > system/controlDict2
+
+$1=endTime
+sed s/$1/writeNow/ system/controlDict > system/controlDict2  
+sed s/$1/noWriteNow/ system/controlDict > system/controlDict2 
+sed s/$1/nextWrite/ system/controlDict > system/controlDict2
 
 elseif [ "$1" = "help" ];
 echo"
@@ -24,7 +25,7 @@ restart: Change the stopAt to endTime
 help: write the help"
 
 else
-sed s/'$1'/'endTime'/ system/controlDict > system/controlDict2   
+sed s/endTime/$1/ system/controlDict > system/controlDict2   
 fi
 
 cp system/controlDict2 system/controlDict
