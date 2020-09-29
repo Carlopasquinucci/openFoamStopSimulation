@@ -8,7 +8,7 @@
 #    help: write the help
 
 
-if [ "$1" = "restart" ];
+if [ "$1" == "restart" ];
     then
 
 $1=endTime
@@ -16,7 +16,7 @@ sed s/$1/writeNow/ system/controlDict > system/controlDict2
 sed s/$1/noWriteNow/ system/controlDict > system/controlDict2 
 sed s/$1/nextWrite/ system/controlDict > system/controlDict2
 
-elseif [ "$1" = "help" ];
+elseif [ "$1" == "help" ];
 echo"
 writeNow: Stops simulation on completion of current time step and writes data.
 noWriteNow: Stops simulation on completion of current time step and does not write out data.
