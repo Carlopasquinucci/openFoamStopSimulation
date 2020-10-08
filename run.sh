@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Run it as sh run.sh option
 # option can be 
 #    writeNow: Stops simulation on completion of current time step and writes data.
@@ -11,15 +12,17 @@
 if [ $1 == "restart" ]
 then
 
-sed s/writeNow/endTime/g system/controlDict > system/controlDict2  
-sed s/noWriteNow/endTime/g system/controlDict > system/controlDict2 
+sed s/writeNow/endTime/g system/controlDict > system/controlDict2
+cp system/controlDict2 system/controlDict 
+sed s/noWriteNow/endTime/g system/controlDict > system/controlDict2
+cp system/controlDict2 system/controlDict 
 sed s/nextWrite/endTime/g system/controlDict > system/controlDict2
+cp system/controlDict2 system/controlDict
 
 
 else
 
-sed s/endTime/$1/ system/controlDict > system/controlDict2   
+sed s/endTime/$1/ system/controlDict > system/controlDict2
+cp system/controlDict2 system/controlDict
 
 fi
-
-cp system/controlDict2 system/controlDict
