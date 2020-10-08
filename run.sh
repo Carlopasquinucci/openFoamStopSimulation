@@ -9,6 +9,12 @@
 #    help: write the help
 
 
+if [[ $# -eq 0 ]] ; then
+    echo 'Assign an argument, at least writeNow or restart'
+    exit 1
+fi
+
+
 if [ $1 == "restart" ]
 then
 
