@@ -22,10 +22,19 @@ To restart the simulation, you have to set the control **stopAt** to **endTime**
 
 Simply run it as 
 
-> sh run.sh
+> sh run.sh argument
+
+where argument can be:
+> - **writeNow**: Stops simulation on completion of current time step and writes data.
+> - **noWriteNow**: Stops simulation on completion of current time step and does not write out data.
+> - **nextWrite**: Stops simulation on completion of next scheduled write time, specified by writeControl.
+
+to stop the simulation
 
 or
 
 > sh run.sh restart
 
 for restart the simulation
+
+For any help, run sh run.sh --help
